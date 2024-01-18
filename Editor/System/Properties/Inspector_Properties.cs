@@ -37,6 +37,9 @@ namespace com.Klazapp.Editor
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         private void OnCreatedProperties()
         {
+            foldoutDownTex = EditorHelper.LoadTextureFromPackages("com.klazapp.inspector/Editor/Data/Textures/foldoutDown.png");
+            foldoutUpTex = EditorHelper.LoadTextureFromPackages("com.klazapp.inspector/Editor/Data/Textures/foldoutUp.png");
+            
             ResetClassGroup();
             
             childrenPropertyFoldouts = new();
@@ -155,9 +158,9 @@ namespace com.Klazapp.Editor
             StartClassGroup(isParent);
             
             //Negative padding to account for additional spaces added for foldout properties
-            CustomEditorHelper.DrawSpace(-25);
+            EditorHelper.DrawSpace(-25);
             
-            classFoldouts[classFoldoutIndex] = CustomEditorHelper.DrawColoredFoldout(0, 0, "",
+            classFoldouts[classFoldoutIndex] = EditorHelper.DrawColoredFoldout(0, 0, "",
                 inspectorClassGroupModule.foldoutStyle, new Color32(15, 255, 255, 0),
                 classFoldouts[classFoldoutIndex], foldoutDownTex, foldoutUpTex, false);
 
@@ -172,7 +175,7 @@ namespace com.Klazapp.Editor
 
                     DrawPropertyWithChildren(prop, childrenProperties, hasReadOnly, hasNotes);
 
-                    CustomEditorHelper.DrawSpace(20);
+                    EditorHelper.DrawSpace(20);
                 }
             }
             
@@ -200,7 +203,7 @@ namespace com.Klazapp.Editor
                     DrawReadOnly((int)EditorGUIUtility.currentViewWidth - 200, 20, prop, hasNotes);
                 }
 
-                childrenPropertyFoldouts[childrenPropertyFoldoutIndex] = CustomEditorHelper.DrawColoredFoldout(0, 0, prop.name,
+                childrenPropertyFoldouts[childrenPropertyFoldoutIndex] = EditorHelper.DrawColoredFoldout(0, 0, prop.name,
                     inspectorClassGroupModule.foldoutStyle, new Color32(15, 255, 255, 135),
                     childrenPropertyFoldouts[childrenPropertyFoldoutIndex], foldoutDownTex, foldoutUpTex,
                     hasReadOnly);
@@ -223,14 +226,14 @@ namespace com.Klazapp.Editor
                             DrawReadOnly((int)EditorGUIUtility.currentViewWidth - 200, 20, childProperty,
                                 hasReadOnly);
 
-                            CustomEditorHelper.DrawProperty(childProperty,
+                            EditorHelper.DrawProperty(childProperty,
                                 (int)EditorGUIUtility.currentViewWidth - 200, 0, hasReadOnly);
                         }
                         else
                         {
                             DrawNotes((int)EditorGUIUtility.currentViewWidth - 200, 20, hasNotes, childProperty,
                                 true);
-                            CustomEditorHelper.DrawProperty(childProperty, (int)EditorGUIUtility.currentViewWidth - 200, 0, true);
+                            EditorHelper.DrawProperty(childProperty, (int)EditorGUIUtility.currentViewWidth - 200, 0, true);
                         }
                         EditorGUILayout.EndVertical();
                     }
@@ -252,7 +255,7 @@ namespace com.Klazapp.Editor
                 DrawNotes((int)EditorGUIUtility.currentViewWidth - 200, 20, hasNotes, prop);
                 DrawReadOnly((int)EditorGUIUtility.currentViewWidth - 200, 20, prop, hasReadOnly);
 
-                CustomEditorHelper.DrawProperty(prop, (int)EditorGUIUtility.currentViewWidth - 200, 0,
+                EditorHelper.DrawProperty(prop, (int)EditorGUIUtility.currentViewWidth - 200, 0,
                     hasReadOnly);
             }
 

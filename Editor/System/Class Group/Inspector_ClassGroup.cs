@@ -61,7 +61,7 @@ namespace com.Klazapp.Editor
         private void EndClassGroup()
         {
             EditorGUILayout.EndVertical();
-            CustomEditorHelper.DrawSpace(30);
+            EditorHelper.DrawSpace(30);
             
             //Property likely from parent class
             inspectorClassGroupModule.iteratedToChildClass = false;

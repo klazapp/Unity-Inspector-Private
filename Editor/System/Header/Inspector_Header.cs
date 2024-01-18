@@ -82,7 +82,7 @@ namespace com.Klazapp.Editor
             
                 EditorGUILayout.BeginVertical(GUI.skin.window);
                 
-                CustomEditorHelper.DrawBox(0, GetHeaderHeightByType(noteComponent.headerType), new Color32(255, 255, 255, 0), noteComponent.header, noteComponent.headerStyle);
+                EditorHelper.DrawBox(0, GetHeaderHeightByType(noteComponent.headerType), new Color32(255, 255, 255, 0), noteComponent.header, noteComponent.headerStyle);
            
                 //Set back original background color
                 GUI.backgroundColor = defaultColor;

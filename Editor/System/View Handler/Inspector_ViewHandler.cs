@@ -21,6 +21,14 @@ namespace com.Klazapp.Editor
         {
             inspectorViewHandlerModule = new();
             inspectorViewHandlerModule.OnCreated();
+            
+            deselectedCustomViewIcon = EditorHelper.LoadTextureFromPackages("com.klazapp.inspector/Editor/Data/Textures/View Handlers/Deselected Custom view Icon");
+            deselectedClassicViewIcon = EditorHelper.LoadTextureFromPackages("com.klazapp.inspector/Editor/Data/Textures/View Handlers/Deselected Classic View Icon");
+            deselectedDebugViewIcon = EditorHelper.LoadTextureFromPackages("com.klazapp.inspector/Editor/Data/Textures/View Handlers/Deselected Debug View Icon");
+            
+            selectedCustomViewIcon = EditorHelper.LoadTextureFromPackages("com.klazapp.inspector/Editor/Data/Textures/View Handlers/Selected Custom view Icon");
+            selectedClassicViewIcon = EditorHelper.LoadTextureFromPackages("com.klazapp.inspector/Editor/Data/Textures/View Handlers/Selected Classic view Icon");
+            selectedDebugViewIcon = EditorHelper.LoadTextureFromPackages("com.klazapp.inspector/Editor/Data/Textures/View Handlers/Selected Debug view Icon");
         }
         
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -32,7 +40,7 @@ namespace com.Klazapp.Editor
             
             EditorGUILayout.BeginHorizontal(GUI.skin.box);
 
-            CustomEditorHelper.DrawBox(40, 40,
+            EditorHelper.DrawBox(40, 40,
                 inspectorViewHandlerModule.customViewComponent.GetColorByClickState(
                     inspectorViewHandlerModule.customViewComponent.pointerDown,
                     inspectorViewHandlerModule.customViewComponent.pointerUp), "",
@@ -43,9 +51,9 @@ namespace com.Klazapp.Editor
 
             CheckCustomViewPointerState();
             
-            CustomEditorHelper.DrawSpace(50);
+            EditorHelper.DrawSpace(50);
                 
-            CustomEditorHelper.DrawBox(40, 40,
+            EditorHelper.DrawBox(40, 40,
                 inspectorViewHandlerModule.classicViewComponent.GetColorByClickState(
                     inspectorViewHandlerModule.classicViewComponent.pointerDown,
                     inspectorViewHandlerModule.classicViewComponent.pointerUp), "",
@@ -56,9 +64,9 @@ namespace com.Klazapp.Editor
             
             CheckClassViewPointerState();
              
-            CustomEditorHelper.DrawSpace(50);
+            EditorHelper.DrawSpace(50);
                 
-            CustomEditorHelper.DrawBox(40, 40,
+            EditorHelper.DrawBox(40, 40,
                 inspectorViewHandlerModule.debugViewComponent.GetColorByClickState(
                     inspectorViewHandlerModule.debugViewComponent.pointerDown,
                     inspectorViewHandlerModule.debugViewComponent.pointerUp), "",
@@ -82,12 +90,12 @@ namespace com.Klazapp.Editor
         {
             if (!inspectorViewHandlerModule.customViewComponent.pointerDown)
             {
-                inspectorViewHandlerModule.customViewComponent.pointerDown = CustomEditorHelper.OnPointerDownInLastRect();
+                inspectorViewHandlerModule.customViewComponent.pointerDown = EditorHelper.OnPointerDownInLastRect();
             }
 
             if (inspectorViewHandlerModule.customViewComponent.pointerDown)
             {
-                inspectorViewHandlerModule.customViewComponent.pointerUp = CustomEditorHelper.OnPointerUpInLastRect();
+                inspectorViewHandlerModule.customViewComponent.pointerUp = EditorHelper.OnPointerUpInLastRect();
 
                 if (inspectorViewHandlerModule.customViewComponent.pointerUp)
                 { 
@@ -100,10 +108,10 @@ namespace com.Klazapp.Editor
                 Repaint();
             }
 
-            if (!CustomEditorHelper.OnPointerUp()) 
+            if (!EditorHelper.OnPointerUp()) 
                 return;
             
-            if (!CustomEditorHelper.OnPointerLeftRect())
+            if (!EditorHelper.OnPointerLeftRect())
                 return;
                 
             inspectorViewHandlerModule.customViewComponent.pointerDown = false;
@@ -117,12 +125,12 @@ namespace com.Klazapp.Editor
         {
             if (!inspectorViewHandlerModule.classicViewComponent.pointerDown)
             {
-                inspectorViewHandlerModule.classicViewComponent.pointerDown = CustomEditorHelper.OnPointerDownInLastRect();
+                inspectorViewHandlerModule.classicViewComponent.pointerDown = EditorHelper.OnPointerDownInLastRect();
             }
 
             if (inspectorViewHandlerModule.classicViewComponent.pointerDown)
             {
-                inspectorViewHandlerModule.classicViewComponent.pointerUp = CustomEditorHelper.OnPointerUpInLastRect();
+                inspectorViewHandlerModule.classicViewComponent.pointerUp = EditorHelper.OnPointerUpInLastRect();
 
                 if (inspectorViewHandlerModule.classicViewComponent.pointerUp)
                 { 
@@ -135,10 +143,10 @@ namespace com.Klazapp.Editor
                 Repaint();
             }
 
-            if (!CustomEditorHelper.OnPointerUp()) 
+            if (!EditorHelper.OnPointerUp()) 
                 return;
             
-            if (!CustomEditorHelper.OnPointerLeftRect())
+            if (!EditorHelper.OnPointerLeftRect())
                 return;
                 
             inspectorViewHandlerModule.classicViewComponent.pointerDown = false;
@@ -152,12 +160,12 @@ namespace com.Klazapp.Editor
         {
             if (!inspectorViewHandlerModule.debugViewComponent.pointerDown)
             {
-                inspectorViewHandlerModule.debugViewComponent.pointerDown = CustomEditorHelper.OnPointerDownInLastRect();
+                inspectorViewHandlerModule.debugViewComponent.pointerDown = EditorHelper.OnPointerDownInLastRect();
             }
 
             if (inspectorViewHandlerModule.debugViewComponent.pointerDown)
             {
-                inspectorViewHandlerModule.debugViewComponent.pointerUp = CustomEditorHelper.OnPointerUpInLastRect();
+                inspectorViewHandlerModule.debugViewComponent.pointerUp = EditorHelper.OnPointerUpInLastRect();
 
                 if (inspectorViewHandlerModule.debugViewComponent.pointerUp)
                 { 
@@ -170,10 +178,10 @@ namespace com.Klazapp.Editor
                 Repaint();
             }
 
-            if (!CustomEditorHelper.OnPointerUp()) 
+            if (!EditorHelper.OnPointerUp()) 
                 return;
             
-            if (!CustomEditorHelper.OnPointerLeftRect())
+            if (!EditorHelper.OnPointerLeftRect())
                 return;
                 
             inspectorViewHandlerModule.debugViewComponent.pointerDown = false;

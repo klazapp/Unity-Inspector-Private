@@ -50,11 +50,11 @@ namespace com.Klazapp.Editor
             
             OnDisplayHeader();
 
-            CustomEditorHelper.DrawHorizontalLine(10);
+            EditorHelper.DrawHorizontalLine(10);
             
             OnDisplayViewHandler();
             
-            CustomEditorHelper.DrawHorizontalLine(10);
+            EditorHelper.DrawHorizontalLine(10);
             
             OnDisplayProperties();
             

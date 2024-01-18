@@ -18,7 +18,7 @@ namespace com.Klazapp.Editor
             
             //Draw header box
             //Dynamically adjust box width by length of class header
-            CustomEditorHelper.DrawBox(lengthOfClassHeader * 7, 10, inspectorClassGroupModule.classHeaderNameColor, classHeaderName, inspectorClassGroupModule.classNameHeaderStyle, null, Alignment.None);
+            EditorHelper.DrawBox(lengthOfClassHeader * 7, 10, inspectorClassGroupModule.classHeaderNameColor, classHeaderName, inspectorClassGroupModule.classNameHeaderStyle, null, Alignment.None);
         }
         
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -45,14 +45,14 @@ namespace com.Klazapp.Editor
                 var (loadedObject, assetPath) = inspectorClassGroupModule.GetClassObjectAndPath(isBaseClass);
 
                 //Draw button for script location
-                var pressedScriptLocation = CustomEditorHelper.DrawButton(fullWidth - 70, 20, new Color32(120, 120, 120, 255), loadedObject.name + ".cs", inspectorClassGroupModule.classScriptStyle, scriptIcon);
+                var pressedScriptLocation = EditorHelper.DrawButton(fullWidth - 70, 20, new Color32(120, 120, 120, 255), loadedObject.name + ".cs", inspectorClassGroupModule.classScriptStyle, scriptIcon);
                 if (pressedScriptLocation)
                 {
                     OpenScriptLocation(loadedObject, assetPath);
                 }
 
                 //Draw button for editing script
-                var pressedScriptEdit = CustomEditorHelper.DrawButton(20, 20, new Color32(120, 120, 120, 255), "", inspectorClassGroupModule.editScriptStyle, scriptIcon2);
+                var pressedScriptEdit = EditorHelper.DrawButton(20, 20, new Color32(120, 120, 120, 255), "", inspectorClassGroupModule.editScriptStyle, scriptIcon2);
                 if (pressedScriptEdit)
                 {
                     EditScript(loadedObject, assetPath);
@@ -61,7 +61,7 @@ namespace com.Klazapp.Editor
             
             EditorGUILayout.EndHorizontal();
             
-            CustomEditorHelper.DrawSpace(5);
+            EditorHelper.DrawSpace(5);
         }
     }
 }

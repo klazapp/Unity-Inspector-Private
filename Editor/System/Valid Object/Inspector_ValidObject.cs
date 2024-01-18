@@ -36,6 +36,7 @@ namespace com.Klazapp.Editor
                 return assembly.FullName.StartsWith("System")
                        || assembly.FullName.StartsWith("mscorlib")
                        || assembly.FullName.StartsWith("UnityEngine")
+                       || assembly.FullName.StartsWith("Unity")
                        || assembly.FullName.StartsWith("UnityEditor");
             }
             #endregion

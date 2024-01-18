@@ -33,7 +33,7 @@ namespace com.Klazapp.Editor
                     alignment = TextAnchor.MiddleLeft,
                 };
                     
-                CustomEditorHelper.DrawBoxWithBackground(width, height, 5, new Color32(55, 215, 212, 15), new Color32(64, 86, 112, 255), noteTitle, titleStyle);
+                EditorHelper.DrawBoxWithBackground(width, height, 5, new Color32(55, 215, 212, 15), new Color32(64, 86, 112, 255), noteTitle, titleStyle);
             }
 
             if (string.IsNullOrEmpty(noteDescription)) 
@@ -51,7 +51,7 @@ namespace com.Klazapp.Editor
                 alignment = TextAnchor.MiddleLeft,
             };
                     
-            CustomEditorHelper.DrawBoxWithBackground((int)EditorGUIUtility.currentViewWidth - 200, 10, 5, new Color32(55, 215, 212, 15), new Color32(64, 66, 62, 255), noteDescription, descriptionStyle);
+            EditorHelper.DrawBoxWithBackground((int)EditorGUIUtility.currentViewWidth - 200, 10, 5, new Color32(55, 215, 212, 15), new Color32(64, 66, 62, 255), noteDescription, descriptionStyle);
             
             if (hasReadOnly)
             {

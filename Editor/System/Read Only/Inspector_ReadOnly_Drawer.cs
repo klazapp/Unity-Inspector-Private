@@ -27,7 +27,7 @@ namespace com.Klazapp.Editor
 
             GUI.enabled = false;
             
-            CustomEditorHelper.DrawBox(width, height, new Color32(34, 45, 54, 255), "Read Only", readOnlyTitleStyle);
+            EditorHelper.DrawBox(width, height, new Color32(34, 45, 54, 255), "Read Only", readOnlyTitleStyle);
 
             GUI.enabled = true;
         }

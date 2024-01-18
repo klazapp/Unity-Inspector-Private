@@ -20,7 +20,10 @@ namespace com.Klazapp.Editor
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         private void OnCreatedScriptHandler()
         {
-            
+            editScriptIcon = EditorHelper.LoadTextureFromPackages("com.klazapp.inspector/Editor/Data/Textures/Edit Icon 3.png");
+            openScriptLocationIcon = EditorHelper.LoadTextureFromPackages("com.klazapp.inspector/Editor/Data/Textures/Location Icon.png");
+            scriptIcon = EditorHelper.LoadTextureFromPackages("com.klazapp.inspector/Editor/Data/Textures/Script Icon.png");
+            scriptIcon2 = EditorHelper.LoadTextureFromPackages("com.klazapp.inspector/Editor/Data/Textures/Edit Icon 4.png");
         }
         
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -44,13 +47,13 @@ namespace com.Klazapp.Editor
             
             EditorGUILayout.BeginHorizontal(GUI.skin.box);
             
-            CustomEditorHelper.DrawBox(200, 40, inspectorEditScriptComponent.GetColorByClickState(inspectorEditScriptComponent.pointerDown, inspectorEditScriptComponent.pointerUp), "EDIT SCRIPT", openScriptContentStyle, editScriptIcon);
+            EditorHelper.DrawBox(200, 40, inspectorEditScriptComponent.GetColorByClickState(inspectorEditScriptComponent.pointerDown, inspectorEditScriptComponent.pointerUp), "EDIT SCRIPT", openScriptContentStyle, editScriptIcon);
 
             CheckEditScriptPointerState();
             
-            CustomEditorHelper.DrawSpace(50);
+            EditorHelper.DrawSpace(50);
                 
-            CustomEditorHelper.DrawBox(200, 40, inspectorOpenScriptLocationComponent.GetColorByClickState(inspectorOpenScriptLocationComponent.pointerDown, inspectorOpenScriptLocationComponent.pointerUp), "SCRIPT LOCATION", openScriptContentStyle, openScriptLocationIcon);
+            EditorHelper.DrawBox(200, 40, inspectorOpenScriptLocationComponent.GetColorByClickState(inspectorOpenScriptLocationComponent.pointerDown, inspectorOpenScriptLocationComponent.pointerUp), "SCRIPT LOCATION", openScriptContentStyle, openScriptLocationIcon);
     
             CheckOpenScriptLocationPointerState();
             
@@ -208,12 +211,12 @@ namespace com.Klazapp.Editor
         {
             if (!inspectorEditScriptComponent.pointerDown)
             {
-                inspectorEditScriptComponent.pointerDown = CustomEditorHelper.OnPointerDownInLastRect();
+                inspectorEditScriptComponent.pointerDown = EditorHelper.OnPointerDownInLastRect();
             }
 
             if (inspectorEditScriptComponent.pointerDown)
             {
-                inspectorEditScriptComponent.pointerUp = CustomEditorHelper.OnPointerUpInLastRect();
+                inspectorEditScriptComponent.pointerUp = EditorHelper.OnPointerUpInLastRect();
 
                 if (inspectorEditScriptComponent.pointerUp)
                 { 
@@ -226,10 +229,10 @@ namespace com.Klazapp.Editor
                 Repaint();
             }
 
-            if (!CustomEditorHelper.OnPointerUp()) 
+            if (!EditorHelper.OnPointerUp()) 
                 return;
             
-            if (!CustomEditorHelper.OnPointerLeftRect())
+            if (!EditorHelper.OnPointerLeftRect())
                 return;
                 
             inspectorEditScriptComponent.pointerDown = false;
@@ -243,12 +246,12 @@ namespace com.Klazapp.Editor
         {
             if (!inspectorOpenScriptLocationComponent.pointerDown)
             {
-                inspectorOpenScriptLocationComponent.pointerDown = CustomEditorHelper.OnPointerDownInLastRect();
+                inspectorOpenScriptLocationComponent.pointerDown = EditorHelper.OnPointerDownInLastRect();
             }
 
             if (inspectorOpenScriptLocationComponent.pointerDown)
             {
-                inspectorOpenScriptLocationComponent.pointerUp = CustomEditorHelper.OnPointerUpInLastRect();
+                inspectorOpenScriptLocationComponent.pointerUp = EditorHelper.OnPointerUpInLastRect();
 
                 if (inspectorOpenScriptLocationComponent.pointerUp)
                 {
@@ -261,10 +264,10 @@ namespace com.Klazapp.Editor
                 }
             }
             
-            if (!CustomEditorHelper.OnPointerUp()) 
+            if (!EditorHelper.OnPointerUp()) 
                 return;
             
-            if (!CustomEditorHelper.OnPointerLeftRect())
+            if (!EditorHelper.OnPointerLeftRect())
                 return;
                 
             inspectorOpenScriptLocationComponent.pointerDown = false;
