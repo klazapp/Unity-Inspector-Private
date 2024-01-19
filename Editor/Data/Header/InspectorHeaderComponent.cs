@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace com.Klazapp.Editor
 {
-    internal class InspectorHeaderComponent
+    internal struct InspectorHeaderComponent
     { 
         internal InspectorHeaderType headerType; 
         internal string header; 
