@@ -36,7 +36,11 @@ namespace com.Klazapp.Editor
                 return type.Name;
             }
         
-            var typeName = type.Name[..type.Name.IndexOf('`')];
+            //var typeName = type.Name[..type.Name.IndexOf('`')];
+
+            var indexOfBacktick = type.Name.IndexOf('`');
+            var typeName = indexOfBacktick >= 0 ? type.Name.Substring(0, indexOfBacktick) : type.Name;
+            
             var genericArgs = string.Join(", ", type.GetGenericArguments().Select(t => t.Name));
             return $"{typeName}<{genericArgs}>";
         }

@@ -16,10 +16,10 @@ namespace com.Klazapp.Editor
             var targetObjects = serializedObject.targetObjects;
 
             //Get last target object
-            var lastTargetObject = targetObjects[^1];
+            var lastTargetObject = targetObjects[targetObjects.Length - 1];
 
             //Check if lastTargetObject is MonoBehaviour or ScriptableObject
-            if (lastTargetObject is MonoBehaviour or ScriptableObject)
+            if (lastTargetObject is MonoBehaviour || lastTargetObject is ScriptableObject)
             {
                 return !IsBuiltInAssembly(serializedObject);
             }
@@ -36,7 +36,6 @@ namespace com.Klazapp.Editor
                 return assembly.FullName.StartsWith("System")
                        || assembly.FullName.StartsWith("mscorlib")
                        || assembly.FullName.StartsWith("UnityEngine")
-                       || assembly.FullName.StartsWith("Unity")
                        || assembly.FullName.StartsWith("UnityEditor");
             }
             #endregion

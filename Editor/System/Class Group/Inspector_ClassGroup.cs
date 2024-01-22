@@ -6,7 +6,7 @@ namespace com.Klazapp.Editor
 {
     public partial class Inspector
     {
-        private readonly InspectorClassGroupModule inspectorClassGroupModule = new();
+        private readonly InspectorClassGroupModule inspectorClassGroupModule = new InspectorClassGroupModule();
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         private void ResetClassGroup()

@@ -19,12 +19,12 @@ namespace com.Klazapp.Editor
         private List<SerializedProperty> childSerializedProperties;
 
         #region Foldout Variables (of script classes)
-        private readonly List<bool> classFoldouts = new();
+        private readonly List<bool> classFoldouts = new List<bool>();
         private int classFoldoutIndex = 0;
         #endregion
         
         #region Foldout Variables (with children)
-        private List<bool> childrenPropertyFoldouts = new();
+        private List<bool> childrenPropertyFoldouts = new List<bool>();
         private int childrenPropertyFoldoutIndex = 0;
         private float2 scrollPos;
         #endregion
@@ -37,12 +37,9 @@ namespace com.Klazapp.Editor
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         private void OnCreatedProperties()
         {
-            foldoutDownTex = EditorHelper.LoadTextureFromPackages("com.klazapp.inspector/Editor/Data/Textures/foldoutDown.png");
-            foldoutUpTex = EditorHelper.LoadTextureFromPackages("com.klazapp.inspector/Editor/Data/Textures/foldoutUp.png");
-            
             ResetClassGroup();
             
-            childrenPropertyFoldouts = new();
+            childrenPropertyFoldouts = new List<bool>();
             for (var i = 0; i < 2; i++)
             {
                 classFoldouts.Add(i != 0);
@@ -55,7 +52,7 @@ namespace com.Klazapp.Editor
             if (!hasChildren)
                 return;
 
-            childrenPropertyFoldouts = new();
+            childrenPropertyFoldouts = new List<bool>();
    
             while (serializedProperty.NextVisible(enterChildren: false))
             {
@@ -66,11 +63,11 @@ namespace com.Klazapp.Editor
             }
             childrenPropertyFoldoutIndex = 0;
 
-            serializedProperties = new();
+            serializedProperties = new List<SerializedProperty>();
             serializedProperties = GetAllProperties(serializedObject);
 
-            parentSerializedProperties = new();
-            childSerializedProperties = new();
+            parentSerializedProperties = new List<SerializedProperty>();
+            childSerializedProperties = new List<SerializedProperty>();
             (parentSerializedProperties, childSerializedProperties) = SeparateProperties(serializedObject, serializedProperties);
         }
         
@@ -360,7 +357,7 @@ namespace com.Klazapp.Editor
             if (!childPath.StartsWith(expectedStart)) return false;
 
             //Check if the remainder of the child's path contains no further dots
-            var remainder = childPath[expectedStart.Length..];
+            var remainder = childPath.Substring(expectedStart.Length);
             return !remainder.Contains(".");
         }
 
@@ -389,8 +386,16 @@ namespace com.Klazapp.Editor
             {
                 if (element.Contains("["))
                 {
-                    var elementName = element[..element.IndexOf("[", StringComparison.Ordinal)];
-                    var index = Convert.ToInt32(element[element.IndexOf("[", StringComparison.Ordinal)..].Replace("[", "").Replace("]", ""));
+                    //var elementName = element[..element.IndexOf("[", StringComparison.Ordinal)];
+
+                    var indexOfBracket = element.IndexOf("[", StringComparison.Ordinal);
+                    var elementName = indexOfBracket >= 0 ? element.Substring(0, indexOfBracket) : element;
+                    
+                    //var index = Convert.ToInt32(element[element.IndexOf("[", StringComparison.Ordinal)..].Replace("[", "").Replace("]", ""));
+
+                    var substring = indexOfBracket >= 0 ? element.Substring(indexOfBracket) : "";
+                    var index = Convert.ToInt32(substring.Replace("[", "").Replace("]", ""));
+                    
                     obj = GetValue(obj, elementName, index);
                 }
                 else

@@ -14,8 +14,8 @@ namespace com.Klazapp.Editor
             monoBehaviourHeaderComponent = new InspectorHeaderComponent
             {
                 header = "",
-                headerColor = new(135, 215, 209, 255),
-                headerStyle = new()
+                headerColor = new Color32(135, 215, 209, 255),
+                headerStyle = new GUIStyle()
                 {
                     fontStyle = FontStyle.Bold,
                     fontSize = 15,
@@ -32,8 +32,8 @@ namespace com.Klazapp.Editor
             scriptableObjectHeaderComponent = new InspectorHeaderComponent
             {
                 header = "",
-                headerColor = new(115, 135, 255, 255),
-                headerStyle = new()
+                headerColor = new Color32(115, 135, 255, 255),
+                headerStyle = new GUIStyle()
                 {
                     fontStyle = FontStyle.Bold,
                     fontSize = 15,
@@ -50,8 +50,8 @@ namespace com.Klazapp.Editor
             todoHeaderComponent = new InspectorHeaderComponent
             {
                 header = "",
-                headerColor = new(235, 115, 109, 255),
-                headerStyle = new()
+                headerColor = new Color32(235, 115, 109, 255),
+                headerStyle = new GUIStyle()
                 {
                     fontStyle = FontStyle.Italic,
                     fontSize = 13,

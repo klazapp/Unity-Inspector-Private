@@ -3,6 +3,7 @@ using System.Runtime.CompilerServices;
 using UnityEditor;
 using UnityEngine;
 using com.Klazapp.Utility;
+using UnityEngine.UIElements;
 
 namespace com.Klazapp.Editor
 {
@@ -126,9 +127,16 @@ namespace com.Klazapp.Editor
             {
                 return false;
             }
+
+            if (attributes != null)
+            {
+                return attributes.Length > 0;
+            }
+ 
+            return false;
             
             //return attributes.Length > 0 ? attributes[0] : null;
-            return attributes is { Length: > 0 };
+            //return attributes is { Length: > 0 };
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -242,8 +250,16 @@ namespace com.Klazapp.Editor
                 return false;
             }
 
+            
+            if (attributes != null)
+            {
+                return attributes.Length > 0;
+            }
+ 
+            return false;
+            
             //return attributes.Length > 0 ? attributes[0] : null;
-            return attributes is { Length: > 0 };
+            //return attributes is { Length: > 0 };
         }
         #endregion
         
@@ -295,8 +311,15 @@ namespace com.Klazapp.Editor
                 return false;
             }
 
+            if (attributes != null)
+            {
+                return attributes.Length > 0;
+            }
+ 
+            return false;
+            
             //return attributes.Length > 0 ? attributes[0] : null;
-            return attributes is { Length: > 0 };
+            //return attributes is { Length: > 0 };
         }
         #endregion
         #endregion

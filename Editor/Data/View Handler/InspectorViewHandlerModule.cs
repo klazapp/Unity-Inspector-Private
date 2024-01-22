@@ -18,7 +18,7 @@ namespace com.Klazapp.Editor
         public void OnCreated()
         {
             #region Set GUIStyle
-            viewContentStyle = new()                                               
+            viewContentStyle = new GUIStyle()                                               
             {                                                                      
                 fontSize = 12,                                                     
                 fontStyle = FontStyle.Bold,                                        
@@ -47,28 +47,28 @@ namespace com.Klazapp.Editor
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         private void CreateCustomViewComponent()
         {
-            customViewComponent = new();
-            customViewComponent.pointerHoverColor = new(175, 135, 54, 255);
-            customViewComponent.pointerDownColor = new(71, 103, 255, 255);
-            customViewComponent.pointerUpColor = new(44, 35, 44, 0);
+            customViewComponent = new InspectorViewHandlerComponent();
+            customViewComponent.pointerHoverColor = new Color32(175, 135, 54, 255);
+            customViewComponent.pointerDownColor = new Color32(71, 103, 255, 255);
+            customViewComponent.pointerUpColor = new Color32(44, 35, 44, 0);
         }
         
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         private void CreateClassViewComponent()
         {
-            classicViewComponent = new();
-            classicViewComponent.pointerHoverColor = new(175, 135, 54, 255);  
-            classicViewComponent.pointerDownColor = new(25, 25, 25, 255);    
-            classicViewComponent.pointerUpColor = new(44, 35, 44, 0);       
+            classicViewComponent = new InspectorViewHandlerComponent();
+            classicViewComponent.pointerHoverColor = new Color32(175, 135, 54, 255);  
+            classicViewComponent.pointerDownColor = new Color32(25, 25, 25, 255);    
+            classicViewComponent.pointerUpColor = new Color32(44, 35, 44, 0);       
         }
         
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         private void CreateDebugViewComponent()
         {
-            debugViewComponent = new();
-            debugViewComponent.pointerHoverColor = new(175, 135, 54, 255);  
-            debugViewComponent.pointerDownColor = new(255, 71, 123, 255);    
-            debugViewComponent.pointerUpColor = new(44, 35, 44, 0);       
+            debugViewComponent = new InspectorViewHandlerComponent();
+            debugViewComponent.pointerHoverColor = new Color32(175, 135, 54, 255);  
+            debugViewComponent.pointerDownColor = new Color32(255, 71, 123, 255);    
+            debugViewComponent.pointerUpColor = new Color32(44, 35, 44, 0);       
         }
     }
 }

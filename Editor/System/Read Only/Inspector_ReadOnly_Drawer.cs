@@ -12,7 +12,7 @@ namespace com.Klazapp.Editor
             if (!hasReadOnly)
                 return;
             
-            GUIStyle readOnlyTitleStyle = new()
+            GUIStyle readOnlyTitleStyle = new GUIStyle()
             {
                 fontSize = 12,
                 fontStyle = FontStyle.Normal,

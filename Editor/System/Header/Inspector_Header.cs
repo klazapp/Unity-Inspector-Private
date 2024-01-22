@@ -8,20 +8,20 @@ namespace com.Klazapp.Editor
 {
     public partial class Inspector
     {
-        internal InspectorHeaderModule inspectorHeaderModule = new();
+        internal InspectorHeaderModule inspectorHeaderModule = new InspectorHeaderModule();
         
-        internal readonly List<InspectorHeaderComponent> noteComponents = new();
+        internal readonly List<InspectorHeaderComponent> noteComponents = new List<InspectorHeaderComponent>();
 
         //[MethodImpl(MethodImplOptions.AggressiveInlining)]
         private void OnCreatedHeader()
         {
-            inspectorHeaderModule = new();
+            inspectorHeaderModule = new InspectorHeaderModule();
             inspectorHeaderModule.OnCreated();
             
             var targetObjects = serializedObject.targetObjects;
 
             //Get last target object
-            var lastTargetObject = targetObjects[^1];
+            var lastTargetObject = targetObjects[targetObjects.Length - 1];
 
             //Get all attributes associated with said object
             var attributes = lastTargetObject.GetType().GetCustomAttributes(inherit: false);

@@ -19,16 +19,8 @@ namespace com.Klazapp.Editor
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         private void OnCreatedViewHandler()
         {
-            inspectorViewHandlerModule = new();
+            inspectorViewHandlerModule = new InspectorViewHandlerModule();
             inspectorViewHandlerModule.OnCreated();
-            
-            deselectedCustomViewIcon = EditorHelper.LoadTextureFromPackages("com.klazapp.inspector/Editor/Data/Textures/View Handlers/Deselected Custom view Icon");
-            deselectedClassicViewIcon = EditorHelper.LoadTextureFromPackages("com.klazapp.inspector/Editor/Data/Textures/View Handlers/Deselected Classic View Icon");
-            deselectedDebugViewIcon = EditorHelper.LoadTextureFromPackages("com.klazapp.inspector/Editor/Data/Textures/View Handlers/Deselected Debug View Icon");
-            
-            selectedCustomViewIcon = EditorHelper.LoadTextureFromPackages("com.klazapp.inspector/Editor/Data/Textures/View Handlers/Selected Custom view Icon");
-            selectedClassicViewIcon = EditorHelper.LoadTextureFromPackages("com.klazapp.inspector/Editor/Data/Textures/View Handlers/Selected Classic view Icon");
-            selectedDebugViewIcon = EditorHelper.LoadTextureFromPackages("com.klazapp.inspector/Editor/Data/Textures/View Handlers/Selected Debug view Icon");
         }
         
         [MethodImpl(MethodImplOptions.AggressiveInlining)]

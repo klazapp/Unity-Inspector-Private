@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
+using Object = UnityEngine.Object;
 
 namespace com.Klazapp.Editor
 {
@@ -16,8 +17,8 @@ namespace com.Klazapp.Editor
         #endregion
         
         #region Colors
-        internal Color32 classNameColor = new(81, 84, 84, 255);
-        internal Color32 classHeaderNameColor = new(81, 84, 84, 255);
+        internal Color32 classNameColor = new Color32(81, 84, 84, 255);
+        internal Color32 classHeaderNameColor = new Color32(81, 84, 84, 255);
         #endregion
         
         #region GUIStyle
@@ -43,7 +44,7 @@ namespace com.Klazapp.Editor
             iteratedToChildClass = false;
             
             #region Set GUIStyle
-            classNameHeaderStyle = new()
+            classNameHeaderStyle = new GUIStyle()
             {
                 fontSize = 10,
                 fontStyle = FontStyle.Bold,
@@ -56,7 +57,7 @@ namespace com.Klazapp.Editor
                 padding = new RectOffset(0, 0, 0, 0)
             };
             
-            classNameStyle = new()
+            classNameStyle = new GUIStyle()
             {
                 fontSize = 12,
                 fontStyle = FontStyle.Bold,
@@ -69,7 +70,7 @@ namespace com.Klazapp.Editor
                 padding = new RectOffset(0, 0, 0, 0)
             };
 
-            classScriptStyle = new()
+            classScriptStyle = new GUIStyle()
             {
                 fontSize = 12,
                 fontStyle = FontStyle.Bold,
@@ -87,7 +88,7 @@ namespace com.Klazapp.Editor
                 padding = new RectOffset(0, 0, 0, 0),
             };
             
-            editScriptStyle = new()
+            editScriptStyle = new GUIStyle()
             {
                 fontSize = 12,
                 fontStyle = FontStyle.Bold,
@@ -96,7 +97,7 @@ namespace com.Klazapp.Editor
                 padding = new RectOffset(0, 0, 0, 0),
             };
             
-            foldoutStyle = new()
+            foldoutStyle = new GUIStyle()
             {
                 fontSize = 12,
                 fontStyle = FontStyle.Italic,
@@ -110,8 +111,7 @@ namespace com.Klazapp.Editor
             };
             #endregion
 
-            scriptObjects = new();
-            
+            scriptObjects = new List<(Object classObject, string classPath)>();
             if (isInheritingFromCustomClass)
             {
                 var parentScriptName = Inspector.GetParentScriptName(serializedObj);

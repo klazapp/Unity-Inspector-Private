@@ -9,8 +9,8 @@ namespace com.Klazapp.Editor
 {
     public partial class Inspector
     {
-        private readonly InspectorEditScriptComponent inspectorEditScriptComponent = new();
-        private readonly InspectorOpenScriptLocationComponent inspectorOpenScriptLocationComponent = new();
+        private readonly InspectorEditScriptComponent inspectorEditScriptComponent = new InspectorEditScriptComponent();
+        private readonly InspectorOpenScriptLocationComponent inspectorOpenScriptLocationComponent = new InspectorOpenScriptLocationComponent();
         
         public Texture2D editScriptIcon;
         public Texture2D openScriptLocationIcon;
@@ -20,16 +20,13 @@ namespace com.Klazapp.Editor
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         private void OnCreatedScriptHandler()
         {
-            editScriptIcon = EditorHelper.LoadTextureFromPackages("com.klazapp.inspector/Editor/Data/Textures/Edit Icon 3.png");
-            openScriptLocationIcon = EditorHelper.LoadTextureFromPackages("com.klazapp.inspector/Editor/Data/Textures/Location Icon.png");
-            scriptIcon = EditorHelper.LoadTextureFromPackages("com.klazapp.inspector/Editor/Data/Textures/Script Icon.png");
-            scriptIcon2 = EditorHelper.LoadTextureFromPackages("com.klazapp.inspector/Editor/Data/Textures/Edit Icon 4.png");
+            
         }
         
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         private void OnDisplayEditScript()
         {
-            GUIStyle openScriptContentStyle = new()
+            GUIStyle openScriptContentStyle = new GUIStyle()
             {
                 fontSize = 12,
                 fontStyle = FontStyle.Bold,
@@ -73,7 +70,7 @@ namespace com.Klazapp.Editor
             var assetPath = "";
             UnityEngine.Object loadedObj;
             
-            switch (targetObjects[^1])
+            switch (targetObjects[targetObjects.Length - 1])
             {
                 case MonoBehaviour monoBehaviour:
                     obj = MonoScript.FromMonoBehaviour(monoBehaviour);
@@ -159,7 +156,7 @@ namespace com.Klazapp.Editor
                 }
             }
             
-            var assetPath = AssetDatabase.GUIDToAssetPath(filteredGuids[^1]);
+            var assetPath = AssetDatabase.GUIDToAssetPath(filteredGuids[filteredGuids.Count - 1]);
             var loadedObject = EditorGUIUtility.Load(assetPath);
             
             return (loadedObject, assetPath);
