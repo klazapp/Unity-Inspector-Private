@@ -21,12 +21,12 @@ namespace com.Klazapp.Editor
         {
             inspectorViewHandlerModule = new InspectorViewHandlerModule();
             inspectorViewHandlerModule.OnCreated();
-            deselectedCustomViewIcon = AssetDatabase.LoadAssetAtPath<Texture2D>("Packages/com.Klazapp.Editor/Resources/Data/Textures/View Handlers/Deselected Custom View Icon.png");
-            deselectedClassicViewIcon = AssetDatabase.LoadAssetAtPath<Texture2D>("Packages/com.Klazapp.Editor/Resources/Data/Textures/View Handlers/Deselected Classic View Icon.png");
-            deselectedDebugViewIcon = AssetDatabase.LoadAssetAtPath<Texture2D>("Packages/com.Klazapp.Editor/Resources/Data/Textures/View Handlers/Deselected Debug View Icon.png");
-            selectedCustomViewIcon = AssetDatabase.LoadAssetAtPath<Texture2D>("Packages/com.Klazapp.Editor/Resources/Data/Textures/View Handlers/Selected Custom View Icon.png");
-            selectedClassicViewIcon = AssetDatabase.LoadAssetAtPath<Texture2D>("Packages/com.Klazapp.Editor/Resources/Data/Textures/View Handlers/Selected Classic View Icon.png");
-            selectedDebugViewIcon = AssetDatabase.LoadAssetAtPath<Texture2D>("Packages/com.Klazapp.Editor/Resources/Data/Textures/View Handlers/Selected Debug View Icon.png");
+            deselectedCustomViewIcon = AssetDatabase.LoadAssetAtPath<Texture2D>("Packages/com.Klazapp.inspector/Editor/Data/Textures/View Handlers/Deselected Custom View Icon.png");
+            deselectedClassicViewIcon = AssetDatabase.LoadAssetAtPath<Texture2D>("Packages/com.Klazapp.inspector/Editor/Data/Textures/View Handlers/Deselected Classic View Icon.png");
+            deselectedDebugViewIcon = AssetDatabase.LoadAssetAtPath<Texture2D>("Packages/com.Klazapp.inspector/Editor/Data/Textures/View Handlers/Deselected Debug View Icon.png");
+            selectedCustomViewIcon = AssetDatabase.LoadAssetAtPath<Texture2D>("Packages/com.Klazapp.inspector/Editor/Data/Textures/View Handlers/Selected Custom View Icon.png");
+            selectedClassicViewIcon = AssetDatabase.LoadAssetAtPath<Texture2D>("Packages/com.Klazapp.inspector/Editor/Data/Textures/View Handlers/Selected Classic View Icon.png");
+            selectedDebugViewIcon = AssetDatabase.LoadAssetAtPath<Texture2D>("Packages/com.Klazapp.inspector/Editor/Data/Textures/View Handlers/Selected Debug View Icon.png");
         }
         
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
