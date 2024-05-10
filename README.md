@@ -18,8 +18,9 @@ The Unity Inspector package provided by `com.Klazapp` enhances the default Unity
 - .NET Standard 2.0 or later
 
 ## Compatibility
-
-Compatible with Unity 2020.3 LTS or later versions. Ensure that your project settings are adjusted to use .NET Standard 2.0 or later.
+| Compatibility | URP | BRP | HDRP |
+|---------------|-----|-----|------|
+| Compatible    | ✔️   | ✔️   | ✔️    |
 
 ## Installation
 
