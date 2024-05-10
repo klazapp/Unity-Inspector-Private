@@ -1,6 +1,6 @@
 {
   "name": "com.klazapp.inspector",
-  "displayName": "Unity Inspector",
+  "displayName": "Unity Inspector Private",
   "version": "1.0.0",
   "unity": "2022.3",
   "description": "Enhance your Unity development with the Unity Inspector Package by com.Klazapp. This tool enriches the Unity Inspector with advanced features like script headers, read-only fields, and direct script editing capabilities, facilitating a more efficient and clear development workflow.",
